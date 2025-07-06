@@ -2,7 +2,6 @@ from ui import ChatUI
 from curses import wrapper
 
 import json
-import pickle
 import random
 from tensorflow.keras.models import load_model
 import numpy as np
@@ -10,6 +9,8 @@ import sys
 
 import nltk
 from nltk.stem import WordNetLemmatizer
+import fickling
+
 lemmatizer = WordNetLemmatizer()
 
 
@@ -26,12 +27,12 @@ except:
     print('can\'t find: intents.json')
     sys.exit(0)
 try:
-    words = pickle.load(open('/usercode/words.pkl', 'rb'))
+    words = fickling.load(open('/usercode/words.pkl', 'rb'))
 except:
     print('can\'t find: words.pkl')
     sys.exit(0)
 try:
-    classes = pickle.load(open('/usercode/classes.pkl', 'rb'))
+    classes = fickling.load(open('/usercode/classes.pkl', 'rb'))
 except:
     print('can\'t find: classes.pkl')
     sys.exit(0)
