@@ -3,13 +3,14 @@ from curses import wrapper
 
 import json
 import pickle
-import random
 from tensorflow.keras.models import load_model
 import numpy as np
 import sys
 
 import nltk
 from nltk.stem import WordNetLemmatizer
+import secrets
+
 lemmatizer = WordNetLemmatizer()
 
 
@@ -85,7 +86,7 @@ def getResponse(ints, intents_json):
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
         if(i['tag'] == tag):
-            result = random.choice(i['responses'])
+            result = secrets.choice(i['responses'])
             break
     return result
 
